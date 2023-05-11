@@ -22,20 +22,7 @@ jobs:
       - name: configure
         run: ./configure --enable-alarm --enable-ansi_color --enable-color --enable-cookie --enable-external_uri_loader --enable-gopher --enable-image --enable-ipv6 --enable-m17n --enable-menu --enable-mouse --enable-nls --enable-nntp --enable-sslverify --enable-unicode --enable-w3mmailer --with-imagelib=imlib2 --with-migemo="cmigemo -q -d /usr/share/cmigemo/utf-8/migemo-dict" --with-ssl --with-gc
 
- #     - name: build
+      - name: build
         # TODO(rkta): Remove -Wno-error=deprecated-declarations once support for
         # OpenSSL 3.0 has arrived.
-   #     run: make OPTS='-Werror -Wno-error=deprecated-declarations -Wno-unused-result'
-
-      - name: Build and Deploy
-        env:
-          ACCESS_TOKEN: ${{ secrets.NOTE_B_A }} # VUEAD 是我的 secret 名称，需要替换成你的
-        # 你要操作的目标仓库，注意：是项目仓库名
-          TARGET_REPO: codeonline26/w3m
-        # 构建结果存储的分支
-          TARGET_BRANCH: master/branch
-        # 要使用的构建命令
-        #  BUILD_SCRIPT: npm install && npm run build # 下载依赖 打包项目
-          run: make OPTS='-Werror -Wno-error=deprecated-declarations -Wno-unused-result'
-        # 构建结果存储目录，dist里面会有index.html，如果没有这个文件，显示不了，可在本地构建后去校验
-          BUILD_DIR: dist
+        run: make OPTS='-Werror -Wno-error=deprecated-declarations -Wno-unused-result'
