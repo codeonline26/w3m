@@ -28,7 +28,7 @@ jobs:
       #  run: make OPTS='-Werror -Wno-error=deprecated-declarations -Wno-unused-result'
 
       - name: Build and Deploy
-        uses: jenkey2011/vuepress-deploy@master
+ #       uses: jenkey2011/vuepress-deploy@master
         env:
           ACCESS_TOKEN: ${{ secrets.NOTE_B_A }} # VUEAD 是我的 secret 名称，需要替换成你的
         # 你要操作的目标仓库，注意：是项目仓库名
@@ -39,4 +39,4 @@ jobs:
         #  BUILD_SCRIPT: npm install && npm run build # 下载依赖 打包项目
           run: make OPTS='-Werror -Wno-error=deprecated-declarations -Wno-unused-result'
         # 构建结果存储目录，dist里面会有index.html，如果没有这个文件，显示不了，可在本地构建后去校验
-          BUILD_DIR: dist
+        #  BUILD_DIR: dist
