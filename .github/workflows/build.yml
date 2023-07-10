@@ -26,3 +26,8 @@ jobs:
         # TODO(rkta): Remove -Wno-error=deprecated-declarations once support for
         # OpenSSL 3.0 has arrived.
         run: make OPTS='-Werror -Wno-error=deprecated-declarations -Wno-unused-result'
+      - name: Archive production artifacts
+        uses: actions/upload-artifact@v1
+        with:
+          name: w3m
+          path: /home/runner/work/w3m/w3m/
